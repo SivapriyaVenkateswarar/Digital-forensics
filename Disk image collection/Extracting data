@@ -1,0 +1,16 @@
+This Python script extracts .log files from an NTFS filesystem inside a forensic disk image (output.raw). It does this by:
+🔹 Step-by-Step Breakdown
+Opens the disk image (output.raw) using pytsk3, treating it as a read-only disk.
+Locates the NTFS partition (assumes it starts at sector 63 * 512).
+Navigates the file system recursively from the root directory /.
+Searches for all .log files inside folders and subfolders.
+Extracts each log file to a local directory (D:\Digital forensics\Logs).
+🔹 Key Functions
+TSK_IMG_INFO → Opens the disk image and allows reading data.
+find_log_files → Scans for .log files inside the NTFS filesystem.
+extract_file → Reads and writes the found log files to a new location.
+🔹 What You Get
+✅ Extracted log files stored in D:\Digital forensics\Logs\.
+✅ Scans hidden directories, system folders, and deep subdirectories.
+✅ Works on Windows forensic images (like EnCase .E01 converted to .raw).
+
